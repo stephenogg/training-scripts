@@ -36,7 +36,7 @@ def mask_to_binim_yx(mask):
 
     mask_packed = mask.getBytes()
     # convert bytearray into something we can use
-    intarray = np.fromstring(mask_packed, dtype=np.uint8)
+    intarray = np.frombuffer(mask_packed, dtype=np.uint8)
     binarray = np.unpackbits(intarray)
     # truncate and reshape
     binarray = np.reshape(binarray[: (w * h)], (h, w))
